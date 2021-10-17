@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>Basic usage</h1>
+  <div class="container" data-controller="iscroll">
+    <table border="1">
+      <thead>
+        <tr><th>header</th><th>header</th></tr>
+      </thead>
+      <tbody data-iscroll-target="content">
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+      </tbody>
+    </table>
+    <div style="display: none;" data-iscroll-target="paging">
+      <a class="prev">prev</a>
+      <a href="index.1.html">index.1.html</a>
+      <a href="index.2.html">index.2.html</a>
+      <a href="index.3.html">index.3.html</a>
+      <a href="index.2.html" class="next">next</a>
+    </div>
+    <div style="display: none;" data-iscroll-target="loading">Loading...</div>
+  </div>
+</body>
+</html>

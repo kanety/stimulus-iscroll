@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="importmap">
+    {
+      "imports": {
+        "@hotwired/stimulus": "/node_modules/@hotwired/stimulus/dist/stimulus.js",
+        "@kanety/stimulus-iscroll": "/dist/index.module.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import { Application, Controller } from '@hotwired/stimulus';
+    import IscrollController from '@kanety/stimulus-iscroll';
+    const application = Application.start();
+    application.register('iscroll', IscrollController);
+  </script>
+  <style>
+    .container {
+      height: 200.5px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+    }
+    </style>
+  </head>
+<body>
+  <h1>Basic usage</h1>
+  <div class="container" data-controller="iscroll" data-action="scroll->iscroll#run">
+    <table border="1">
+      <thead>
+        <tr><th>header</th><th>header</th></tr>
+      </thead>
+      <tbody data-iscroll-target="content">
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+        <tr><td>page1</td><td>page1</td></tr>
+      </tbody>
+    </table>
+    <div style="display: none;" data-iscroll-target="paging">
+      <a class="prev">prev</a>
+      <a href="index.1.html">index.1.html</a>
+      <a href="index.2.html">index.2.html</a>
+      <a href="index.3.html">index.3.html</a>
+      <a href="index.2.html" class="next">next</a>
+    </div>
+    <div style="display: none;" data-iscroll-target="loading">Loading...</div>
+  </div>
+</body>
+</html>
