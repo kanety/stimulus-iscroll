@@ -30,6 +30,10 @@ export default class extends Controller {
 
     if (this.loading) return;
 
+    this.fetch();
+  }
+
+  fetch() {
     this.start();
     fetch(this.nextHref).then(response => {
       if (response.ok) {
@@ -47,18 +51,12 @@ export default class extends Controller {
   }
 
   start() {
-    this.loading = true;
-    if (this.hasLoadingTarget) {
-      this.loadingTarget.style.display = '';
-    }
+    this.toggleLoading(true);
     this.dispatch('start', { detail: { href: this.nextHref } });
   }
 
   end() {
-    this.loading = false;
-    if (this.hasLoadingTarget) {
-      this.loadingTarget.style.display = 'none';
-    }
+    this.toggleLoading(false);
     this.dispatch('end', { detail: { href: this.nextHref } });
   }
 
@@ -77,5 +75,12 @@ export default class extends Controller {
 
   fail(error) {
     this.dispatch('fail', { detail: { href: this.nextHref, error: error } });
+  }
+
+  toggleLoading(loading) {
+    this.loading = loading;
+    if (this.hasLoadingTarget) {
+      this.loadingTarget.style.display = loading ? '' : 'none';
+    }
   }
 }

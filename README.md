@@ -28,6 +28,7 @@ Build html as follows:
 
 ```html
 <div data-controller="iscroll"
+     data-action="scroll->iscroll#run"
      data-iscroll-next-link-value="a.next">
   <table>
     <thead>
